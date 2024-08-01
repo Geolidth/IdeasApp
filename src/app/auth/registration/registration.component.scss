@@ -1,0 +1,35 @@
+mat-card {
+  width: 50%;
+  margin: 24px auto;
+  padding: 32px;
+
+  mat-card-title {
+    color: white;
+  }
+  .registration-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    mat-form-field {
+      width: 80%;
+    }
+  }
+  mat-card-title {
+    color: lightcoral;
+  }
+
+  mat-card-content {
+    margin: 10px 0;
+  }
+
+  mat-card-header {
+    margin: 0 auto 10px auto;
+    padding: 10px;
+  }
+
+  button {
+    margin: auto;
+  }
+}
