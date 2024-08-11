@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Idea } from './models/idea.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { NewIdea } from './models/newIdea';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,9 @@ export class IdeasService {
   private readonly BASE_URL = `${environment.baseUrl}/ideas`;
   constructor(private readonly http: HttpClient) {}
 
+  getIdeaById(id: string) {
+    return this.http.get<Idea>(`${this.BASE_URL}/${id}`);
+  }
   listIdeas() {
     return this.http.get<Idea[]>(`${this.BASE_URL}`);
   }
@@ -30,5 +34,13 @@ export class IdeasService {
 
   deleteIdea(idea: Idea) {
     return this.http.delete<{ id: string }>(`${this.BASE_URL}/${idea.id}`);
+  }
+
+  createIdea(newIdea: NewIdea) {
+    return this.http.post<Idea>(`${this.BASE_URL}`, newIdea);
+  }
+
+  editIdea(id: string, updatedIdea: NewIdea) {
+    return this.http.put<Idea>(`${this.BASE_URL}/${id}`, updatedIdea);
   }
 }

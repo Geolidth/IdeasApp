@@ -1,1 +1,32 @@
-<p>new-idea works!</p>
+<div class="container">
+  <h1>{{ title() }}</h1>
+  <form [formGroup]="newIdea" (ngSubmit)="save()">
+    <mat-form-field>
+      <mat-label>Név</mat-label>
+      <input matInput formControlName="name" />
+      @if(newIdea.controls.name.errors?.['required']){
+      <mat-error>A név megadás kötelező</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Leírás</mat-label>
+      <input matInput formControlName="description" />
+      @if(newIdea.controls.description.errors?.['required']){
+      <mat-error>A leírás megadás kötelező</mat-error>
+      }
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="newIdea.invalid || isLoading()"
+    >
+      @if(isLoading()){
+      <mat-spinner diameter="20" />
+      }@else{ Mentés}
+    </button>
+    <button mat-raised-button [routerLink]="['/ideas']" type="button">
+      Vissza
+    </button>
+  </form>
+</div>

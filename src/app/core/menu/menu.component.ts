@@ -4,11 +4,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../../auth/auth.service';
 import { User } from '../../auth/models/user.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, RouterLink],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })

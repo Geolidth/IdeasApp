@@ -5,6 +5,13 @@
     <mat-card-subtitle>{{ idea.description }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
+    <button
+      mat-icon-button
+      [routerLink]="['/ideas/new']"
+      [queryParams]="{ id: idea.id }"
+    >
+      <mat-icon color="primary">edit</mat-icon>
+    </button>
     <button mat-icon-button (click)="upvoteIdea(idea)">
       <mat-icon color="primary">thumb_up</mat-icon>
     </button>

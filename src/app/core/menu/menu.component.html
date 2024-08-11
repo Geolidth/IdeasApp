@@ -2,6 +2,9 @@
   <div><span>Ötletdoboz</span></div>
   <div>
     @if(authService.isLoggedIn){
+    <button mat-button [routerLink]="['/ideas/new']" color="primary">
+      Új ötlet
+    </button>
     <span>{{ currentUser()?.username }}</span>
     <button mat-icon-button (click)="logout()">
       <mat-icon>logout</mat-icon>

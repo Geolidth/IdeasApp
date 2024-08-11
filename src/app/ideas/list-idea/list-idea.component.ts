@@ -7,11 +7,18 @@ import { Idea } from '../models/idea.model';
 import { IdeasService } from '../ideas.service';
 import { switchMap, tap } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list-idea',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatBadgeModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    RouterLink,
+  ],
   templateUrl: './list-idea.component.html',
   styleUrl: './list-idea.component.scss',
 })
